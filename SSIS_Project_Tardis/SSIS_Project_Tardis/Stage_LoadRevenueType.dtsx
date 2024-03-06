@@ -1,0 +1,1478 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/31/2024 3:17:44 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LENOVO-T440"
+  DTS:CreatorName="LENOVO-T440\Shakhnoza"
+  DTS:DTSID="{96F730DA-B6EF-4B8F-AD5D-A0675BC85055}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Stage_LoadRevenueType"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{A600B101-0353-4956-8E61-969FD95A072E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{399F325D-76B3-4806-A84D-00A1BDEDC03B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task - Load Data Into Staging_Revenue Table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Staging_Revenue_type]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{880E81B7-C95A-4890-B351-ED8EC8109A02}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dest_Tardis_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevenueTypeID]"
+                      cachedDataType="i4"
+                      cachedName="RevenueTypeID"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeID]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevenueTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="RevenueTypeCode"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeCode]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevenueTypeName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="RevenueTypeName"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeName]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevenueTypeDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="RevenueTypeDescription"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeDescription]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Deposit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Deposit"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Deposit]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Deposit]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InstalmentProcessing]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="InstalmentProcessing"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InstalmentProcessing]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[InstalmentProcessing]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Instalmentrounding]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Instalmentrounding"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Instalmentrounding]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instalmentrounding]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Revenuecodeflag1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Revenuecodeflag1"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Revenuecodeflag1]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag1]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Revenuecodeflag2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Revenuecodeflag2"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Revenuecodeflag2]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag2]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Revenuecodeflag3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Revenuecodeflag3"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Revenuecodeflag3]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag3]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PremiumFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="PremiumFlag"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PremiumFlag]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[PremiumFlag]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClaimFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ClaimFlag"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClaimFlag]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClaimFlag]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExpenseFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ExpenseFlag"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExpenseFlag]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpenseFlag]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExchangeDiffFlg]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ExchangeDiffFlg"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExchangeDiffFlg]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExchangeDiffFlg]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReserveFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ReserveFlag"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveFlag]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveFlag]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClaimType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ClaimType"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClaimType]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClaimType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExchangeDffType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ExchangeDffType"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExchangeDffType]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExchangeDffType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReserveCodeINCAS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ReserveCodeINCAS"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveCodeINCAS]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveCodeINCAS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReserveReleasedFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ReserveReleasedFlag"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveReleasedFlag]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveReleasedFlag]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SummaryAccumulationSeq]"
+                      cachedDataType="numeric"
+                      cachedName="SummaryAccumulationSeq"
+                      cachedPrecision="5"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SummaryAccumulationSeq]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SummaryAccumulationSeq]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReportDefaultSign]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="ReportDefaultSign"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReportDefaultSign]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportDefaultSign]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OldArrayName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="OldArrayName"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldArrayName]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OldArrayName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RecordDeleteFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="RecordDeleteFlag"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RecordDeleteFlag]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RecordDeleteFlag]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateExpired]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateExpired"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateExpired]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateUpdated"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrentYN]"
+                      cachedDataType="bool"
+                      cachedName="CurrentYN"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceSystemID]"
+                      cachedDataType="i4"
+                      cachedName="SourceSystemID"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                      cachedDataType="i4"
+                      cachedName="BatchID"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RevenueTypeCodeID]"
+                      cachedDataType="i4"
+                      cachedName="RevenueTypeCodeID"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeCodeID]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeCodeID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Signage]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Signage"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Signage]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Signage]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeID]"
+                      dataType="i4"
+                      name="RevenueTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="RevenueTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="RevenueTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RevenueTypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Deposit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Deposit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InstalmentProcessing]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="InstalmentProcessing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Instalmentrounding]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Instalmentrounding" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Revenuecodeflag1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Revenuecodeflag1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Revenuecodeflag2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Revenuecodeflag2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Revenuecodeflag3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Revenuecodeflag3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PremiumFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PremiumFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClaimFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ClaimFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExpenseFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ExpenseFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExchangeDiffFlg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ExchangeDiffFlg" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReserveFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClaimType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ClaimType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExchangeDffType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ExchangeDffType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveCodeINCAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ReserveCodeINCAS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveReleasedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReserveReleasedFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SummaryAccumulationSeq]"
+                      dataType="numeric"
+                      name="SummaryAccumulationSeq"
+                      precision="5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReportDefaultSign]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReportDefaultSign" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OldArrayName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="OldArrayName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RecordDeleteFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="RecordDeleteFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      name="DateExpired" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeCodeID]"
+                      dataType="i4"
+                      name="RevenueTypeCodeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Signage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Signage" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[RevenueType]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{2898E6B0-EFCB-4469-A5F4-4BD741AE78EC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Source_Tardis]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeID]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeID]"
+                      name="RevenueTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeCode]"
+                      length="3"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeCode]"
+                      name="RevenueTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeName]"
+                      length="10"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeName]"
+                      name="RevenueTypeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeDescription]"
+                      length="50"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeDescription]"
+                      name="RevenueTypeDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Deposit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Deposit]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Deposit]"
+                      name="Deposit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[InstalmentProcessing]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InstalmentProcessing]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[InstalmentProcessing]"
+                      name="InstalmentProcessing"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instalmentrounding]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Instalmentrounding]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Instalmentrounding]"
+                      name="Instalmentrounding"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Revenuecodeflag1]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag1]"
+                      name="Revenuecodeflag1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Revenuecodeflag2]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag2]"
+                      name="Revenuecodeflag2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Revenuecodeflag3]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Revenuecodeflag3]"
+                      name="Revenuecodeflag3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[PremiumFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PremiumFlag]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[PremiumFlag]"
+                      name="PremiumFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClaimFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClaimFlag]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClaimFlag]"
+                      name="ClaimFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpenseFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExpenseFlag]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpenseFlag]"
+                      name="ExpenseFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExchangeDiffFlg]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExchangeDiffFlg]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExchangeDiffFlg]"
+                      name="ExchangeDiffFlg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveFlag]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveFlag]"
+                      name="ReserveFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClaimType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClaimType]"
+                      length="3"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClaimType]"
+                      name="ClaimType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExchangeDffType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExchangeDffType]"
+                      length="3"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExchangeDffType]"
+                      name="ExchangeDffType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveCodeINCAS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveCodeINCAS]"
+                      length="3"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveCodeINCAS]"
+                      name="ReserveCodeINCAS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveReleasedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveReleasedFlag]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveReleasedFlag]"
+                      name="ReserveReleasedFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SummaryAccumulationSeq]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SummaryAccumulationSeq]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SummaryAccumulationSeq]"
+                      name="SummaryAccumulationSeq"
+                      precision="5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportDefaultSign]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReportDefaultSign]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReportDefaultSign]"
+                      name="ReportDefaultSign"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OldArrayName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OldArrayName]"
+                      length="5"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OldArrayName]"
+                      name="OldArrayName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RecordDeleteFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RecordDeleteFlag]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RecordDeleteFlag]"
+                      name="RecordDeleteFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateExpired]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]"
+                      name="DateExpired"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      name="DateUpdated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      name="CurrentYN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      name="SourceSystemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      name="BatchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeCodeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeCodeID]"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[RevenueTypeCodeID]"
+                      name="RevenueTypeCodeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Signage]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Signage]"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Signage]"
+                      name="Signage"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeID]"
+                      dataType="i4"
+                      name="RevenueTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="RevenueTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="RevenueTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RevenueTypeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Deposit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Deposit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InstalmentProcessing]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="InstalmentProcessing" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Instalmentrounding]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Instalmentrounding" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Revenuecodeflag1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Revenuecodeflag1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Revenuecodeflag2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Revenuecodeflag2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Revenuecodeflag3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Revenuecodeflag3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PremiumFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PremiumFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClaimFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ClaimFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExpenseFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ExpenseFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExchangeDiffFlg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ExchangeDiffFlg" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReserveFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClaimType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ClaimType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExchangeDffType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ExchangeDffType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveCodeINCAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ReserveCodeINCAS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveReleasedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReserveReleasedFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SummaryAccumulationSeq]"
+                      dataType="numeric"
+                      name="SummaryAccumulationSeq"
+                      precision="5" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReportDefaultSign]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ReportDefaultSign" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OldArrayName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="OldArrayName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RecordDeleteFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="RecordDeleteFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      name="DateExpired" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RevenueTypeCodeID]"
+                      dataType="i4"
+                      name="RevenueTypeCodeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Signage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Signage" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeID]"
+                      name="RevenueTypeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeCode]"
+                      name="RevenueTypeCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeName]"
+                      name="RevenueTypeName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeDescription]"
+                      name="RevenueTypeDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Deposit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Deposit]"
+                      name="Deposit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InstalmentProcessing]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InstalmentProcessing]"
+                      name="InstalmentProcessing" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Instalmentrounding]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Instalmentrounding]"
+                      name="Instalmentrounding" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Revenuecodeflag1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Revenuecodeflag1]"
+                      name="Revenuecodeflag1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Revenuecodeflag2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Revenuecodeflag2]"
+                      name="Revenuecodeflag2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Revenuecodeflag3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Revenuecodeflag3]"
+                      name="Revenuecodeflag3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PremiumFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PremiumFlag]"
+                      name="PremiumFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClaimFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClaimFlag]"
+                      name="ClaimFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExpenseFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExpenseFlag]"
+                      name="ExpenseFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExchangeDiffFlg]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExchangeDiffFlg]"
+                      name="ExchangeDiffFlg" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveFlag]"
+                      name="ReserveFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClaimType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClaimType]"
+                      name="ClaimType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExchangeDffType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExchangeDffType]"
+                      name="ExchangeDffType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveCodeINCAS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveCodeINCAS]"
+                      name="ReserveCodeINCAS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveReleasedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveReleasedFlag]"
+                      name="ReserveReleasedFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SummaryAccumulationSeq]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SummaryAccumulationSeq]"
+                      name="SummaryAccumulationSeq"
+                      precision="5" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReportDefaultSign]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReportDefaultSign]"
+                      name="ReportDefaultSign" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OldArrayName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OldArrayName]"
+                      name="OldArrayName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RecordDeleteFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RecordDeleteFlag]"
+                      name="RecordDeleteFlag" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateExpired]"
+                      name="DateExpired" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      name="DateUpdated" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      name="CurrentYN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      name="SourceSystemID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      name="BatchID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeCodeID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RevenueTypeCodeID]"
+                      name="RevenueTypeCodeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Signage]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Signage]"
+                      name="Signage" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task - Load Data Into Staging_Revenue Table.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Truncate Staging_Revenue Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B7642E59-CB5E-4645-ADD2-0B2E88ACD666}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Truncate Staging_Revenue Table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{880E81B7-C95A-4890-B351-ED8EC8109A02}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Staging_Revenue_Type" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{16D3DDC5-6586-406E-B0A2-B8C4F6A9A455}"
+      DTS:From="Package\Execute SQL Task - Truncate Staging_Revenue Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task - Load Data Into Staging_Revenue Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="357,42"
+          Id="Package\Data Flow Task - Load Data Into Staging_Revenue Table"
+          TopLeft="302,176" />
+        <NodeLayout
+          Size="344,42"
+          Id="Package\Execute SQL Task - Truncate Staging_Revenue Table"
+          TopLeft="255,64" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="427,106">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.5,70"
+              Start="0,0"
+              End="53.5,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31"
+                    Point2="0,35"
+                    Point3="4,35" />
+                  <mssgle:LineSegment
+                    End="49.5,35" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49.5,35"
+                    Point2="53.5,35"
+                    Point3="53.5,39" />
+                  <mssgle:LineSegment
+                    End="53.5,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task - Load Data Into Staging_Revenue Table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source"
+          TopLeft="510,191" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination"
+          TopLeft="505,332" />
+        <EdgeLayout
+          Id="Package\Data Flow Task - Load Data Into Staging_Revenue Table.Paths[OLE DB Source Output]"
+          TopLeft="591,233">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,99"
+              Start="0,0"
+              End="0,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task - Load Data Into Staging_Revenue Table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

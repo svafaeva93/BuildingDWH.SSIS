@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Dest_Tardis_Stage"
+  DTS:DTSID="{880E81B7-C95A-4890-B351-ED8EC8109A02}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.;Initial Catalog=Stage_Tardis;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Stage_LoadPolicy-{880E81B7-C95A-4890-B351-ED8EC8109A02}LocalHost.Stage_Tardis;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

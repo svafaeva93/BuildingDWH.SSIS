@@ -1,0 +1,669 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/2/2024 7:13:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LENOVO-T440"
+  DTS:CreatorName="LENOVO-T440\Shakhnoza"
+  DTS:DTSID="{BB090F8C-5E30-4B92-B37F-13FC7A3B6650}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.948.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Stage_LoadFinanceCurrency"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{02E349DF-4870-4A43-9884-A4C556BD34D3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3EFB1216-D7C1-4C12-8CCF-D434E7796D08}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination - Staging FinanceCurrency"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Staging_FinanceCurrency]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Connections[OleDbConnection]"
+                  connectionManagerID="{880E81B7-C95A-4890-B351-ED8EC8109A02}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dest_Tardis_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[CurrCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="CurrCode"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrCode]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[CurrDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CurrDescription"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrDescription]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrDescription]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[CurrencyID]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrencyID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[CreateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreateDate"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CreateDate]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CreateDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                      cachedDataType="i4"
+                      cachedName="BatchID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[BatchID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[SourceSystemID]"
+                      cachedDataType="i4"
+                      cachedName="SourceSystemID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[SourceSystemID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[CurrentYN]"
+                      cachedDataType="bool"
+                      cachedName="CurrentYN"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrentYN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].Columns[ExpiredDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ExpiredDate"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[ExpiredDate]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[ExpiredDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CurrDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyID]"
+                      dataType="i4"
+                      name="CurrencyID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      name="CreateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input].ExternalColumns[ExpiredDate]"
+                      dataType="dbTimeStamp"
+                      name="ExpiredDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source - OLTP FinanceCurrency"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Finance].[Currency]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Connections[OleDbConnection]"
+                  connectionManagerID="{2898E6B0-EFCB-4469-A5F4-4BD741AE78EC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Source_Tardis]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CurrCode]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrCode]"
+                      name="CurrCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CurrDescription]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrDescription]"
+                      name="CurrDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrencyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrencyID]"
+                      name="CurrencyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CreateDate]"
+                      name="CreateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      name="BatchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      name="SourceSystemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      name="CurrentYN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[ExpiredDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[ExpiredDate]"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].Columns[ExpiredDate]"
+                      name="ExpiredDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CurrDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CurrDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CurrencyID]"
+                      dataType="i4"
+                      name="CurrencyID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      name="CreateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output].ExternalColumns[ExpiredDate]"
+                      dataType="dbTimeStamp"
+                      name="ExpiredDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CurrCode]"
+                      name="CurrCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CurrDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CurrDescription]"
+                      name="CurrDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CurrencyID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CurrencyID]"
+                      name="CurrencyID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CreateDate]"
+                      name="CreateDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      name="BatchID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      name="SourceSystemID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      name="CurrentYN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[ExpiredDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[ExpiredDate]"
+                      name="ExpiredDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task - Truncate Table Staging_FinanceCurrency"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B5F89EE2-F467-498E-8B52-F4C513FA30CC}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task - Truncate Table Staging_FinanceCurrency"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{880E81B7-C95A-4890-B351-ED8EC8109A02}"
+          SQLTask:SqlStatementSource="Truncate table Staging_FinanceCurrency" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C42028B7-D68C-4C92-9A29-848F7917492C}"
+      DTS:From="Package\Execute SQL Task - Truncate Table Staging_FinanceCurrency"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="384,42"
+          Id="Package\Execute SQL Task - Truncate Table Staging_FinanceCurrency"
+          TopLeft="390,130" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="456.5,282.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="582,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48,110.5"
+              Start="0,0"
+              End="-48,103">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.25"
+                    Point2="0,55.25"
+                    Point3="-4,55.25" />
+                  <mssgle:LineSegment
+                    End="-44,55.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-44,55.25"
+                    Point2="-48,55.25"
+                    Point3="-48,59.25" />
+                  <mssgle:LineSegment
+                    End="-48,103" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="282,42"
+          Id="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency"
+          TopLeft="453,148" />
+        <NodeLayout
+          Size="311,42"
+          Id="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency"
+          TopLeft="510,296" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="594,190">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="71.5,106"
+              Start="0,0"
+              End="71.5,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49"
+                    Point2="0,53"
+                    Point3="4,53" />
+                  <mssgle:LineSegment
+                    End="67.5,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="67.5,53"
+                    Point2="71.5,53"
+                    Point3="71.5,57" />
+                  <mssgle:LineSegment
+                    End="71.5,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Source - OLTP FinanceCurrency">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination - Staging FinanceCurrency">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Staging_Source"
+  DTS:DTSID="{6ADB0618-D725-4963-81CA-F00C00068C1F}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.;Initial Catalog=Stage_Tardis;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DWH_LoadDimensionPolicySection-{6ADB0618-D725-4963-81CA-F00C00068C1F}LocalHost.Stage_Tardis;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
